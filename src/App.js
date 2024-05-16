@@ -96,11 +96,14 @@ function FileUploader() {
     setActiveTab(id);
   };
 
-  const handleCloseTab = (id, event) => {
-    event.stopPropagation();
-    setTabs(tabs.filter(tab => tab.id !== id));
+  const handleRemoveFile = (index) => {
+    setFileUrls(fileUrls.filter((file, i) => i !== index));
+    if (activeTab === index) {
+      setActiveTab(0);
+    } else if (activeTab > index) {
+      setActiveTab(activeTab - 1);
+    }
   };
-
   return (
     <div>
       <div class="navbar">
@@ -137,13 +140,17 @@ function FileUploader() {
             {tab.content}
           </div>
         ))}
-
+File {index + 1}
       </div> */}
       <div className="tabs">
   {fileUrls.map((fileUrl, index) => (
-    <button key={index} onClick={() => setActiveTab(index)} className={index === activeTab ? 'active' : ''}>
-      File {index + 1}
-    </button>
+
+<div key={index} className="tab">
+<button onClick={() => setActiveTab(index)} className={index === activeTab ? 'active' : ''}>
+File {index + 1}
+</button>
+<button onClick={() => handleRemoveFile(index)} className="close-tab">x</button>
+</div>
   ))}
 </div>
 {fileUrls.length > 0 && (
