@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0; /* Change the color as you need */
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  font-family: Arial, sans-serif; /* Change as needed */
+}
+.navbar {
+  display: flex;
+  background-color: #333;
+  padding: 10px;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #fff;
+  }
+
+  .navbar a:last-child {
+    border-bottom: 1px solid #fff;
+  }
+}
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+.file-input {
+  display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px; /* Increase these values */
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px dotted #fff;
+}
+
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .custom-file-upload {
+    font-size: 0.8em; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust as needed */
+  }
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+.tabs button {
+  background-color: #f1f1f1;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+.tabs button:hover {
+  background-color: #ddd;
+}
+
+.tabs button.active {
+  background-color: #ccc;
+}
+
+.cross-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #f44336;
+  color: #fff;
+  font-size: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Add some space between the tab title and the button */
+}
+
+.cross-button:hover {
+  background-color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+  .upload-container {
+    width: 90%; /* Adjust as needed */
+  }
+
+  .custom-file-upload {
+    font-size: 0.8em; /* Adjust as needed */
   }
 }
